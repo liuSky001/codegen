@@ -8,7 +8,7 @@ package ${table.packageName};
 import java.util.ArrayList;
 import java.util.List;
 </#if>
-public class ${table.tableProperty}{
+public class ${table.tableProperty} implements I${table.tableProperty}{
 
 <#list table.tableLines as tableLine>
 

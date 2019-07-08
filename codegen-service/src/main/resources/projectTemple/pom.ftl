@@ -18,8 +18,23 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+    <repositories>
+        <repository>
+            <id>edi</id>
+            <url>http://47.92.196.35:8081/repository/edi/</url>
+        </repository>
+    </repositories>
     <dependencies>
+        <dependency>
+            <groupId>com.avatech.edi</groupId>
+            <artifactId>edi-freamwork-model</artifactId>
+            <version>1.01.100_alpha</version>
+        </dependency>
+        <dependency>
+            <groupId>com.avatech.edi</groupId>
+            <artifactId>edi-freamwork-common</artifactId>
+            <version>1.01.100_alpha</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

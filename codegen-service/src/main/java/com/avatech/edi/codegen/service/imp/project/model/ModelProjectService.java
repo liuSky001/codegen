@@ -58,7 +58,7 @@ public class ModelProjectService implements IProjectService {
 
 
     /**
-     * 创建但模块项目
+     * 创建单模块项目
      * @param domainModels
      * @param projectInitial
      */
@@ -72,8 +72,6 @@ public class ModelProjectService implements IProjectService {
                     , projectInitial.getProjectName());
             File file = new File(modelProjectFilePath);
             file.mkdirs();
-
-            // TODO 创建POM文件
 
 
             // TODO 创建类文件

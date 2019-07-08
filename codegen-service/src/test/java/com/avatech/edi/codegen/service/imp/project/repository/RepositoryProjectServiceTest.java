@@ -3,6 +3,7 @@ package com.avatech.edi.codegen.service.imp.project.repository;
 import com.avatech.edi.codegen.model.bo.*;
 import com.avatech.edi.condegen.data.DBType;
 import com.avatech.edi.condegen.data.Dictionary;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -68,5 +69,6 @@ public class RepositoryProjectServiceTest {
         domainModelList.add(domainModel);
         RepositoryProjectService repositoryProjectService = new RepositoryProjectService();
         repositoryProjectService.createProject(domainModelList,projectInitial);
+        Assert.assertEquals(1,1);
     }
 }
