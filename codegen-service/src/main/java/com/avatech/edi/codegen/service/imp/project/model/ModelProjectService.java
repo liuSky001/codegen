@@ -41,12 +41,10 @@ public class ModelProjectService implements IProjectService {
             if (projectInitial.getProjectType().equals(Dictionary.Single_Model)) {
                 // 单模块创建文件夹
                 createSingleProject(domainModels,projectInitial);
-
             } else if (projectInitial.getProjectType().equals(Dictionary.Multiple_Model)) {
                 // 创建模块
                 // TODO 创建POM文件
                 createMutileProject(domainModels,projectInitial);
-
             } else {
                 throw new BusinessServiceException("2001", "配置错误：无效的项目类型");
             }
@@ -74,21 +72,24 @@ public class ModelProjectService implements IProjectService {
             file.mkdirs();
 
 
-            // TODO 创建类文件
+            // 创建类文件
             String boFilePath = modelProjectFilePath + String.format("/bo", projectInitial.getProjectName());
             file = new File(boFilePath);
             file.mkdirs();
+
             HashMap root;
             for (DomainModel domain : domainModels) {
                 if (!StringUtils.isEmpty(domain.getModelName())) {
                     boPackage = boFilePath + "/" + domain.getModelName().toLowerCase();
                     new File(boPackage).mkdirs();
+
                     // TODO 获取BO模板
                     for (Table table : domain.getTableList()) {
                         table.setPackageName(String.format("com.avatech.edi.%s.model.bo." + domain.getModelName().toLowerCase(), projectInitial.getProjectName()));
                         root = new HashMap();
                         root.put("table",getTableMap(table,domain.getBusinessObjectMaps()));
                         commonService.createTmpleCode(root,boPackage+"/"+table.getTableProperty()+".java","model.ftl");
+                        commonService.createTmpleCode(root,boPackage+"/I"+table.getTableProperty()+".java","modelinterface.ftl");
                     }
                 }
             }

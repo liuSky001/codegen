@@ -62,7 +62,7 @@ public class CommonProjectService implements IProjectService {
          * 只有单模块在此生成POM文件，多模块在对应模块中生成POM文件
          */
         if (projectInitial.getProjectType().equals(Dictionary.Single_Model)) {
-            File file = new File(projectInitial.getProjectFilePath() + "/"+projectInitial.getProjectName()+".micservice");
+            File file = new File(projectInitial.getProjectFilePath() + "/"+projectInitial.getProjectName()+".microservice");
             file.mkdirs();
             HashMap map = new HashMap();
             map.put("projectinfo", projectInitial);
@@ -73,7 +73,7 @@ public class CommonProjectService implements IProjectService {
 
     private void createApplication(ProjectInitial projectInitial){
         String controllerFilePath = projectInitial.getProjectFilePath() + "/" + String.format(ProjectData.APPLICATION_URL,projectInitial.getProjectName(), projectInitial.getProjectName());
-        String resourceFilePath = String.format("%s/%s.micservice/src/main/resources",projectInitial.getProjectFilePath(),projectInitial.getProjectName());
+        String resourceFilePath = String.format("%s/%s.microservice/src/main/resources",projectInitial.getProjectFilePath(),projectInitial.getProjectName());
         File file = new File(controllerFilePath);
         file.mkdirs();
         file = new File(resourceFilePath);
