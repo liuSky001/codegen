@@ -10,10 +10,10 @@ package ${mapperObject.packageName}.imp;
 import ${mapperItem.boPackageName};
     </#list>
 </#if>
-import com.avatech.edi.${mapperObject.mapperApplicationName?lower_case}.mapper.${mapperObject.mapperObjName}Mapper;
+import com.avatech.edi.${mapperObject.mapperApplicationName}.mapper.${mapperObject.mapperObjName}Mapper;
 import ${mapperObject.packageName}.${mapperObject.mapperObjName}Repository;
 import com.avatech.edi.model.dto.TranscationResult;
-import com.avatech.edi.edfplatform.mapper.TranscationNoticeMapper;
+import com.avatech.edi.${mapperObject.mapperApplicationName}.mapper.TranscationNoticeMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.Logger;
@@ -103,7 +103,7 @@ public class ${mapperObject.mapperObjName}RepositoryImp extends BaseBORepository
     }
 
     private HashMap<String,String> setTransParam(HashMap<String,String> transParam,${mapperObject.mapperObjName?cap_first} ${mapperObject.mapperObjName?uncap_first},String transType){
-        transParam.put("object_type",bo.getObjectCode());
+        transParam.put("object_type",${mapperObject.mapperObjName?uncap_first}.getObjectCode());
         transParam.put("transaction_type",transType);
         transParam.put("num_of_cols_in_key","1");
         transParam.put("list_of_key_cols_tab_del","DocEntry");
