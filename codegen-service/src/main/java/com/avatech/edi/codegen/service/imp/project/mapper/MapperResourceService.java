@@ -37,6 +37,7 @@ public class MapperResourceService {
             mapperObject.setPackageName(mapperObject.getPackageName() + "."+mapperObject.getMapperObjName()+"Mapper");
             root.put("mapperObject",mapperObject);
             commonService.createTmpleCode(root,mapperFilePath+"/"+mapperObject.getMapperObjName()+"Mapper.xml","mapperxml.ftl");
+            commonService.createTmpleCode(root,mapperFilePath+"/"+"TranscationNoticeMapper.xml","TranscationNoticeMapperXml.ftl");
         }catch (Exception e){
             throw new BusinessServiceException("20012","mapper类型错误");
         }

@@ -14,12 +14,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 public interface ${mapperObject.mapperObjName}Repository{
-<#if mapperObject.mapperObjectItems?has_content>
-    <#list mapperObject.mapperObjectItems as mapperItem>
 
-    void save${mapperItem.tableProperty?cap_first}(${mapperItem.tableProperty?cap_first} ${mapperItem.tableProperty});
+    void save${mapperObject.mapperObjName}(${mapperObject.mapperObjName} ${mapperObject.mapperObjName?uncap_first});
 
-    List<${mapperItem.tableProperty?cap_first}> fetch${mapperItem.tableProperty?cap_first}s();
-    </#list>
-</#if>
+    List<${mapperObject.mapperObjName}> fetch${mapperObject.mapperObjName}s();
+
 }

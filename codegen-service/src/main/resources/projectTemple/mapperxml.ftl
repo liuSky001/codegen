@@ -43,6 +43,9 @@
              from "${mapperItem.tableName}" T0
          </select>
          </#list>
+        <update id="delete${mapperObject.mapperObjName}" parameterType="Long">
+            UPDATE ${mapperObject.mapperObjName} SET "IsDelete" = 'Y' WHERE "DocEntry" =  #${r"{"}docEntry${r"}"}
+        </update>
      </#if>
 
 </mapper>

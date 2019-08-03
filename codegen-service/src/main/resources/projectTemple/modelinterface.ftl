@@ -4,6 +4,8 @@
 * AT ${.now?string["yyyy-MM-dd"]}
 */
 package ${table.packageName};
+
+import com.avatech.edi.model.bo.IBODocument;
 <#if table.businessObjectMaps?has_content>
 import java.util.ArrayList;
 import java.util.List;

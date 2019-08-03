@@ -24,4 +24,5 @@ public interface ${mapperObject.mapperObjName}Mapper{
     List<${mapperItem.tableProperty?cap_first}> search${mapperItem.tableProperty?cap_first}s();
         </#list>
     </#if>
+    void delete${mapperObject.mapperObjName}(Long docEntry);
 }

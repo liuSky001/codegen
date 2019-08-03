@@ -7,6 +7,7 @@ package com.avatech.edi.${businessObject.applicationName}.api;
 
 import ${businessObject.bussinessObjectServicePackageName};
 import ${businessObject.bussinessObjectRepositoryPackageName};
+import com.avatech.edi.model.dto.Result;
 <#if businessObject.bussinessObjectModelPackageName?has_content>
  <#list businessObject.bussinessObjectModelPackageName as modelName>
 import ${modelName};

@@ -36,7 +36,7 @@ public class MapperService {
             HashMap root = new HashMap();
             root.put("mapperObject",mapperObject);
             commonService.createTmpleCode(root,mapperFilePath+"/"+mapperObject.getMapperObjName()+"Mapper.java","mapper.ftl");
-
+            commonService.createTmpleCode(root,mapperFilePath+"/"+"TranscationNoticeMapper.java","TranscationNoticeMapper.ftl");
         }catch (Exception e){
             throw new BusinessServiceException("20012","mapper类型错误");
         }

@@ -9,6 +9,8 @@ import com.avatech.edi.codegen.service.imp.DataStructureFileServiceImp;
 import com.avatech.edi.condegen.common.StringUtils;
 import com.avatech.edi.condegen.data.DBType;
 import com.avatech.edi.condegen.data.Dictionary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,8 @@ import java.util.List;
 @RestController
 
 public class CodeGenController {
+
+    private final Logger logger = LoggerFactory.getLogger(CodeGenController.class);
 
     @Autowired
     private IProjectService projectService;
@@ -58,6 +62,7 @@ public class CodeGenController {
             projectService.createProject(domainModels,projectInitial);
             return "创建项目成功";
         }catch (Exception e){
+            logger.error("创建项目异常",e);
             return e.getMessage();
         }
     }
