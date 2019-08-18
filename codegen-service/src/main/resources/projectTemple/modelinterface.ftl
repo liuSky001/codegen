@@ -9,6 +9,8 @@ import com.avatech.edi.model.bo.IBODocument;
 <#if table.businessObjectMaps?has_content>
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigDecimal;
+import java.util.Date;
 </#if>
 public interface I${table.tableProperty} extends IBODocument{
 

@@ -7,6 +7,8 @@ package ${table.packageName};
 <#if table.businessObjectMaps?has_content>
 import java.util.ArrayList;
 import java.util.List;
+import java.math.BigDecimal;
+import java.util.Date;
 </#if>
 public class ${table.tableProperty} implements I${table.tableProperty}{
 
