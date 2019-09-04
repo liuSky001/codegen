@@ -45,6 +45,9 @@ public class CommonProjectService implements IProjectService {
         // TODO 创建类文件
         createApplication(projectInitial);
 
+        // TODO 创建swaggerconfig文件
+        createSwaggerConfig(projectInitial);
+
         // TODO 创建sql文件
         createDBSql(domainModels,projectInitial);
 
@@ -72,19 +75,27 @@ public class CommonProjectService implements IProjectService {
 
 
     private void createApplication(ProjectInitial projectInitial){
-        String controllerFilePath = projectInitial.getProjectFilePath() + "/" + String.format(ProjectData.APPLICATION_URL,projectInitial.getProjectName(), projectInitial.getProjectName());
-        String resourceFilePath = String.format("%s/%s.microservice/src/main/resources",projectInitial.getProjectFilePath(),projectInitial.getProjectName());
-        File file = new File(controllerFilePath);
+        String applicationFilePath = projectInitial.getProjectFilePath() + "/" + String.format(ProjectData.APPLICATION_URL,projectInitial.getProjectName().toLowerCase(), projectInitial.getProjectName());
+        String resourceFilePath = String.format("%s/%s.microservice/src/main/resources",projectInitial.getProjectFilePath(),projectInitial.getProjectName().toLowerCase());
+        File file = new File(applicationFilePath);
         file.mkdirs();
         file = new File(resourceFilePath);
         file.mkdirs();
         HashMap map = new HashMap();
         map.put("projectInitial",projectInitial);
         map.put("applicationname","EDI");
-        commonService.createTmpleCode(map, controllerFilePath +"/" + StringUtil.capitalize(projectInitial.getProjectName()) + "Application.java","application.ftl");
+        commonService.createTmpleCode(map, applicationFilePath +"/" + StringUtil.capitalize(projectInitial.getProjectName()) + "Application.java","application.ftl");
         commonService.createTmpleCode(map,resourceFilePath +"/application.yml","resourceforapplication.ftl");
         //createTmpleCode(map,resourceFilePath +"/logback-spring.xml","resourceforlog.ftl");
     }
 
+    private void createSwaggerConfig(ProjectInitial projectInitial){
+        String configFilePath = projectInitial.getProjectFilePath() + File.separator + String.format(ProjectData.APPLICATION_URL,projectInitial.getProjectName(), projectInitial.getProjectName()) + File.separator + "config";
+        File file = new File(configFilePath);
+        file.mkdirs();
+        HashMap map = new HashMap();
+        map.put("projectInitial",projectInitial);
+        commonService.createTmpleCode(map, configFilePath +File.separator  + "SwaggerConfig.java","swaggerconfig.ftl");
+    }
 
 }

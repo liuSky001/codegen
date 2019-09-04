@@ -10,6 +10,7 @@ import java.util.List;
 import java.math.BigDecimal;
 import java.util.Date;
 </#if>
+@ApiModel(description = "${table.tableProperty}")
 public class ${table.tableProperty} implements I${table.tableProperty}{
 
     private final String OBJECT_CODE = "";
